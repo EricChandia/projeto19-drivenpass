@@ -9,9 +9,8 @@ dotenv.config();
 const app = express();
 app.use(json());
 app.use(cors());
-app.use(errorHandler);
 app.use(router);
-
+app.use(errorHandler);
 
 const PORT = Number(process.env.PORT) || 5000;
 

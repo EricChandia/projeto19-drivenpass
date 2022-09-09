@@ -17,7 +17,7 @@ export default function errorHandlerMiddleware(
   console.log(err);
   const type: string = err.type;
   let statusCode = ERRORS[type];
-  if (!statusCode) statusCode = 500; // any other types
+  if (!statusCode) statusCode = 500; // internal server error
 
-  return res.sendStatus(statusCode); // internal server error
+  return res.sendStatus(statusCode); 
 }
