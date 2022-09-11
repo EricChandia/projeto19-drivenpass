@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createCredential } from "../controllers/credentialController";
+import { createCredential, deleteCredential, getCredentialById, getCredentials } from "../controllers/credentialController";
 import { validateSchema } from "../middlewares/schemaValidator";
 import { credentialSchema } from "../schemas/credentialSchema";
 import { validateToken } from "../middlewares/tokenMiddleware";
@@ -7,7 +7,8 @@ import { validateToken } from "../middlewares/tokenMiddleware";
 const credentialRoute = Router();
 
 credentialRoute.post("/createCredential", validateToken, validateSchema(credentialSchema), createCredential);
-//authRoute.post("/signIn", validateSchema(userSchema), signIn);
-
+credentialRoute.get("/getCredentials", validateToken, getCredentials);
+credentialRoute.get("/getCredential/:id", validateToken, getCredentialById);
+credentialRoute.delete("/deleteCredential/:id", validateToken, deleteCredential);
 
 export default credentialRoute;

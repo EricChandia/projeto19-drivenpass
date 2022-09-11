@@ -1,6 +1,4 @@
-import { prisma } from "@prisma/client";
 import client from "../database/prismaClient";
-import {User} from "@prisma/client";
 import { IUserData } from "../types/userTypes";
 
 export async function findUserByEmail(email: string) {
