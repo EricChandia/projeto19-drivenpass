@@ -28,9 +28,9 @@ export async function getSecureNoteById(req: Request, res: Response) {
     const verifiedUser = res.locals.user;
     const { id:userId } = verifiedUser;
     
-    const credential = await secureNoteService.getSecureNoteById(Number(id), Number(userId));
+    const secureNote = await secureNoteService.getSecureNoteById(Number(id), Number(userId));
 
-    res.status(200).send(credential);
+    res.status(200).send(secureNote);
 }
 
 export async function deleteSecureNote(req: Request, res: Response) {
